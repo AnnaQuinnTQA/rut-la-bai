@@ -15,6 +15,16 @@
       justify-content: center;
       min-height: 100vh;
       text-align: center;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://i.imgur.com/7bFZKwq.gif') repeat;
+      opacity: 0.07;
+      z-index: -1;
     }
 
     h1 {
@@ -31,17 +41,18 @@
 
     button {
       padding: 12px 24px;
-      background: #457b9d;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
       color: white;
       border: none;
       border-radius: 6px;
       font-size: 18px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: background 0.4s ease;
+      margin: 6px;
     }
 
     button:hover {
-      background: #365f7a;
+      background: linear-gradient(to right, #2575fc, #6a11cb);
     }
 
     #card {
@@ -50,65 +61,4 @@
       background: white;
       border-radius: 12px;
       padding: 20px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-
-    #card.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    #card img {
-      width: 100%;
-      max-width: 280px;
-      border-radius: 10px;
-      margin-top: 16px;
-    }
-
-    footer {
-      margin-top: 50px;
-      font-size: 13px;
-      color: #888;
-    }
-  </style>
-</head>
-<body>
-
-  <h1>Tarot Healer</h1>
-  <p class="intro">Tập trung tâm trí và bấm nút để rút một lá bài hôm nay...</p>
-  <button onclick="drawCard()">Rút bài</button>
-
-  <div id="card"></div>
-
-  <footer>&copy; 2025 TarotHealer</footer>
-
-  <script>
-    const cards = [
-  {
-    text: "🔥 Sự chuyển hóa – Đừng sợ thay đổi, bạn đang tiến hóa.",
-    image: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWJiaHlhZ3dkb3NxYjMxNzFmMnM2NGZrdmxjYnl1N2ozZjM1bHk5aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oz8xGcTYUZpIOEAuc/giphy.gif"
-  },
-  {
-    text: "🌙 The Moon – Hãy tin vào trực giác của bạn.",
-    image: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExc29yZjViZmNmMDU1MmdhZnoxMmFpaXQzNmZqY3h5d2Fhd2s1ZTAyaSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jvWYEqoq4DE3ZU9gZx/giphy.gif"
-  },
-  {
-    text: "🗝 The High Priestess – Bí mật & khám phá nội tâm.",
-    image: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDdndHR2bW5qMHpyNHM5NmNianBibGplamY1OG11MWR6MWFlMjI0eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Vgquu9an3UZCS32Aov/giphy.gif"
-  }
-];
-    function drawCard() {
-      const container = document.getElementById("card");
-      const card = cards[Math.floor(Math.random() * cards.length)];
-      container.innerHTML = `
-        <p>${card.text}</p>
-        <img src="${card.image}" alt="Tarot card">
-      `;
-      container.classList.add("show");
-    }
-  </script>
-</body>
-</html>
+      box-shadow: 0 8px 16
