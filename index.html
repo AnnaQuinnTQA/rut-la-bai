@@ -2,103 +2,111 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Tarot Healer - Rút Lá Bài</title>
+  <title>Tarot Healer</title>
   <style>
     body {
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #d0f0ff, #e6f7ff);
+      background: #eef7ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
       text-align: center;
-      padding: 50px;
-      position: relative;
-      overflow: hidden;
     }
 
     h1 {
-      color: #005f8e;
+      color: #2e3a59;
+      margin-bottom: 10px;
     }
 
-    #card {
-      margin-top: 40px;
-      font-size: 20px;
-      padding: 20px;
-      border: 2px dashed #ccc;
-      min-height: 250px;
-      background: white;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    p.intro {
+      color: #555;
+      margin-bottom: 30px;
     }
 
     button {
-      background-color: #005f8e;
+      padding: 12px 24px;
+      background: #457b9d;
       color: white;
       border: none;
-      padding: 14px 28px;
+      border-radius: 6px;
       font-size: 18px;
-      border-radius: 8px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s ease;
     }
 
     button:hover {
-      background-color: #00456a;
+      background: #365f7a;
     }
 
-    img {
-      max-width: 250px;
-      margin-top: 20px;
-      border-radius: 8px;
-    }
-
-    .star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
+    #card {
+      margin-top: 30px;
+      max-width: 360px;
       background: white;
-      box-shadow: 0 0 8px white;
-      border-radius: 50%;
-      animation: twinkle 2s infinite ease-in-out;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
     }
 
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.2; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.5); }
+    #card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #card img {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 10px;
+      margin-top: 16px;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 13px;
+      color: #888;
     }
   </style>
 </head>
 <body>
-  <h1>✨ Tarot Healer ✨</h1>
-  <p>Hãy tập trung vào câu hỏi trong lòng, rồi bấm nút dưới đây để rút 1 lá bài.</p>
-  <button onclick="drawCard()">🔮 Rút bài</button>
+
+  <h1>🔮 Tarot Healer</h1>
+  <p class="intro">Tập trung tâm trí và bấm nút để rút một lá bài hôm nay...</p>
+  <button onclick="drawCard()">Rút bài</button>
+
   <div id="card"></div>
+
+  <footer>&copy; 2025 TarotHealer</footer>
 
   <script>
     const cards = [
       {
-        text: "🌞 The Sun – Thành công, tích cực, niềm vui đang đến gần bạn.",
+        text: "🌞 The Sun – Năng lượng tích cực đang đến với bạn.",
         image: "https://i.imgur.com/VxeFj3K.jpg"
       },
       {
-        text: "🌙 The Moon – Hãy lắng nghe trực giác, đừng quá tin vào bề ngoài.",
+        text: "🌙 The Moon – Trực giác mách bảo, hãy tin vào cảm xúc.",
         image: "https://i.imgur.com/ChEpW6e.jpg"
       },
       {
-        text: "💖 The Lovers – Một quyết định lớn trong tình cảm sắp tới.",
-        image: "https://i.imgur.com/fntKk0e.jpg"
+        text: "🗝 The High Priestess – Bí mật & khám phá nội tâm.",
+        image: "https://i.imgur.com/YFq13p5.jpg"
       }
     ];
 
     function drawCard() {
+      const container = document.getElementById("card");
       const card = cards[Math.floor(Math.random() * cards.length)];
-      document.getElementById("card").innerHTML = `
+      container.innerHTML = `
         <p>${card.text}</p>
         <img src="${card.image}" alt="Tarot card">
       `;
+      container.classList.add("show");
     }
-
-    // Tạo ngôi sao lấp lánh
-    for (let i = 0; i < 60; i++) {
-      const star = document.createElement('div');
-      star.classLi
+  </script>
+</body>
+</html>
