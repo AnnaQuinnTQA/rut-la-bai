@@ -6,13 +6,17 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #fff9f3, #fceae0);
+      background: linear-gradient(to bottom, #d0f0ff, #e6f7ff);
       text-align: center;
       padding: 50px;
+      position: relative;
+      overflow: hidden;
     }
+
     h1 {
-      color: #9c27b0;
+      color: #005f8e;
     }
+
     #card {
       margin-top: 40px;
       font-size: 20px;
@@ -26,8 +30,9 @@
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+
     button {
-      background-color: #9c27b0;
+      background-color: #005f8e;
       color: white;
       border: none;
       padding: 14px 28px;
@@ -36,13 +41,30 @@
       cursor: pointer;
       transition: background 0.3s;
     }
+
     button:hover {
-      background-color: #7b1fa2;
+      background-color: #00456a;
     }
+
     img {
       max-width: 250px;
       margin-top: 20px;
       border-radius: 8px;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      box-shadow: 0 0 8px white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.5); }
     }
   </style>
 </head>
@@ -75,6 +97,8 @@
         <img src="${card.image}" alt="Tarot card">
       `;
     }
-  </script>
-</body>
-</html>
+
+    // Tạo ngôi sao lấp lánh
+    for (let i = 0; i < 60; i++) {
+      const star = document.createElement('div');
+      star.classLi
