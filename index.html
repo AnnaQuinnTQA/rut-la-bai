@@ -1,47 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Rút lá bài may mắn</title>
+  <title>Tarot Healer - Rút Lá Bài</title>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #fff9f3, #fceae0);
       text-align: center;
       padding: 50px;
-      background: #f8f8f8;
+    }
+    h1 {
+      color: #9c27b0;
     }
     #card {
-      margin-top: 30px;
-      font-size: 24px;
+      margin-top: 40px;
+      font-size: 20px;
       padding: 20px;
-      border: 2px dashed #aaa;
-      min-height: 200px;
+      border: 2px dashed #ccc;
+      min-height: 250px;
       background: white;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     button {
-      font-size: 20px;
-      padding: 12px 24px;
+      background-color: #9c27b0;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 18px;
+      border-radius: 8px;
       cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #7b1fa2;
+    }
+    img {
+      max-width: 250px;
+      margin-top: 20px;
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
-  <h1>✨ Rút một lá bài ✨</h1>
-  <button onclick="drawCard()">Rút bài</button>
+  <h1>✨ Tarot Healer ✨</h1>
+  <p>Hãy tập trung vào câu hỏi trong lòng, rồi bấm nút dưới đây để rút 1 lá bài.</p>
+  <button onclick="drawCard()">🔮 Rút bài</button>
   <div id="card"></div>
 
   <script>
     const cards = [
-      { text: "🌞 Hôm nay bạn sẽ gặp may mắn", image: "https://i.imgur.com/Z5vK5nD.png" },
-      { text: "📬 Tin vui bất ngờ sắp đến!", image: "https://i.imgur.com/Ax4kskb.png" },
-      { text: "💼 Cơ hội công việc mới đang chờ bạn", image: "https://i.imgur.com/TDGaDoR.png" }
+      {
+        text: "🌞 The Sun – Thành công, tích cực, niềm vui đang đến gần bạn.",
+        image: "https://i.imgur.com/VxeFj3K.jpg"
+      },
+      {
+        text: "🌙 The Moon – Hãy lắng nghe trực giác, đừng quá tin vào bề ngoài.",
+        image: "https://i.imgur.com/ChEpW6e.jpg"
+      },
+      {
+        text: "💖 The Lovers – Một quyết định lớn trong tình cảm sắp tới.",
+        image: "https://i.imgur.com/fntKk0e.jpg"
+      }
     ];
 
     function drawCard() {
       const card = cards[Math.floor(Math.random() * cards.length)];
       document.getElementById("card").innerHTML = `
         <p>${card.text}</p>
-        <img src="${card.image}" alt="card" style="max-width: 300px; margin-top: 10px;">
+        <img src="${card.image}" alt="Tarot card">
       `;
     }
   </script>
