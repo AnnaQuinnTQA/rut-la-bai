@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rút lá bài may mắn</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: #f8f8f8;
+    }
+    #card {
+      margin-top: 30px;
+      font-size: 24px;
+      padding: 20px;
+      border: 2px dashed #aaa;
+      min-height: 200px;
+      background: white;
+    }
+    button {
+      font-size: 20px;
+      padding: 12px 24px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>✨ Rút một lá bài ✨</h1>
+  <button onclick="drawCard()">Rút bài</button>
+  <div id="card"></div>
+
+  <script>
+    const cards = [
+      { text: "🌞 Hôm nay bạn sẽ gặp may mắn", image: "https://i.imgur.com/Z5vK5nD.png" },
+      { text: "📬 Tin vui bất ngờ sắp đến!", image: "https://i.imgur.com/Ax4kskb.png" },
+      { text: "💼 Cơ hội công việc mới đang chờ bạn", image: "https://i.imgur.com/TDGaDoR.png" }
+    ];
+
+    function drawCard() {
+      const card = cards[Math.floor(Math.random() * cards.length)];
+      document.getElementById("card").innerHTML = `
+        <p>${card.text}</p>
+        <img src="${card.image}" alt="card" style="max-width: 300px; margin-top: 10px;">
+      `;
+    }
+  </script>
+</body>
+</html>
